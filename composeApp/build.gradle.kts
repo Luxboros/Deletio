@@ -43,6 +43,8 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.2")
+            implementation("com.ionspin.kotlin:bignum:0.3.10")
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)

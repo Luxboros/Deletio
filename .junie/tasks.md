@@ -34,26 +34,26 @@ Calculation Logic, and Finalization.
 
 ## Phase 3: Calculation Logic
 
-- [ ] Create a function that takes loanTotal, monthlyPayment, and interestRate
+- [x] Create a function that takes loanTotal, monthlyPayment, and interestRate
   as arguments
-- [ ] Inside the function, calculate the monthly interest rate from the annual
+- [x] Inside the function, calculate the monthly interest rate from the annual
   rate
-- [ ] Implement a loop that subtracts the monthly payment from the loan balance
+- [x] Implement a loop that subtracts the monthly payment from the loan balance
   and adds the calculated interest each month
-- [ ] Keep a running total of interest paid
-- [ ] Count the number of months until the loan balance is zero or less
-- [ ] Convert the total months into a future date to find the "Payoff Date"
-- [ ] Return the calculated payoffDate and totalInterestPaid
+- [x] Keep a running total of interest paid
+- [x] Count the number of months until the loan balance is zero or less
+- [x] Convert the total months into a future date to find the "Payoff Date"
+- [x] Return the calculated payoffDate and totalInterestPaid
 
 ---
 
 ## Phase 4: Integration & Finalization
 
-- [ ] Connect the "Calculate" button to the calculation function
-- [ ] Pass the values from the input fields to the function
-- [ ] Take the results from the function and display them in the corresponding
+- [x] Connect the "Calculate" button to the calculation function
+- [x] Pass the values from the input fields to the function
+- [x] Take the results from the function and display them in the corresponding
   output text views
-- [ ] Perform basic input validation (e.g., ensure inputs are not empty and are
+- [x] Perform basic input validation (e.g., ensure inputs are not empty and are
   valid numbers)
-- [ ] Test the app with different values to ensure accuracy
+- [x] Test the app with different values to ensure accuracy
 - [ ] Project Complete
