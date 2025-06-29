@@ -56,4 +56,4 @@ Calculation Logic, and Finalization.
 - [x] Perform basic input validation (e.g., ensure inputs are not empty and are
   valid numbers)
 - [x] Test the app with different values to ensure accuracy
-- [ ] Project Complete
+- [x] Project Complete
