@@ -12,11 +12,21 @@ struct ComposeView: UIViewControllerRepresentable {
 }
 
 struct ContentView: View {
+    private let dynamicBackgroundColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .dark {
+            return UIColor(hex: 0x1a1829) // Your dark theme background
+        } else {
+            return UIColor(hex: 0xF5F3F7) // Your light theme background
+        }
+    }
     var body: some View {
         ComposeView()
-            .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+            .background(Color(dynamicBackgroundColor)).ignoresSafeArea(.keyboard) // Compose has own keyboard handler
     }
 }
+
+
+
 
 
 
