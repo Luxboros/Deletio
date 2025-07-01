@@ -7,10 +7,15 @@ data class CalculationResult(
     val payoffDate: LocalDate?, val totalInterestPaid: Double?,
 )
 
+enum class ResultCardType {
+    POSITIVE, INFO, WARNING
+}
+
 fun formatToCurrency(value: Double?, currencySymbol: String = "$"): String {
     return when (value) {
         null -> "${currencySymbol}0.00"
         -1.0 -> "Payment is too low, total value accruing."
+        -2.0 -> "Can't calculate emptiness. That's black hole territory."
         else -> {
             "$currencySymbol${value.toCurrencyString()}"
         }
@@ -20,7 +25,7 @@ fun formatToCurrency(value: Double?, currencySymbol: String = "$"): String {
 fun dateToString(date: LocalDate?): String {
     return when {
         date == null -> "N/A"
-        date < Clock.System.todayIn(TimeZone.currentSystemDefault()) -> "Definitely not during your lifetime"
+        date < Clock.System.todayIn(TimeZone.currentSystemDefault()) -> "Definitely not during your lifetime."
         else -> "${
             date.month.name.lowercase().replaceFirstChar { it.uppercase() }
         } ${date.year}"
@@ -30,6 +35,10 @@ fun dateToString(date: LocalDate?): String {
 fun calculate(
     monthlyPayment: String, interestRate: String, loanTotal: String,
 ): CalculationResult {
+    if (monthlyPayment.isEmpty() || interestRate.isEmpty() || loanTotal.isEmpty()) return CalculationResult(
+        null,
+        -2.0
+    )
     val monthlyRate = interestRate.toDouble() / 100.0 / 12.0
     val monthlyPaymentValue = monthlyPayment.toDouble()
     val loanTotalValue = loanTotal.toDouble()
