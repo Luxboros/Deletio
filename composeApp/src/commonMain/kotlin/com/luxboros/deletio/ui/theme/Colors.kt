@@ -5,7 +5,7 @@ import androidx.compose.ui.graphics.Color
 // Light Theme
 val LightBackground = Color(0xFFF5F3F7)
 val LightSurface = Color(0xFFEFEAF2)
-val LightAccent = Color(0xFF5850EC)
+val LightAccent = Color(0x5148D9FF)
 val LightOnAccent = Color.White
 val LightTextPrimary = Color(0xFF1F2937)
 val LightTextSecondary = Color(0xFF6B7280)

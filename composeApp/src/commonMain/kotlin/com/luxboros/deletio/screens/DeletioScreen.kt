@@ -13,6 +13,7 @@ import com.luxboros.deletio.domain.ResultCardType
 import com.luxboros.deletio.domain.calculate
 import com.luxboros.deletio.domain.dateToString
 import com.luxboros.deletio.domain.formatToCurrency
+import com.luxboros.deletio.ui.ScreenOrientation
 import com.luxboros.deletio.ui.theme.CustomTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,12 +37,17 @@ fun DeletioScreen() {
         var interestRateError by remember { mutableStateOf(false) }
         var showResults by remember { mutableStateOf(false) }
         val scope = rememberCoroutineScope()
+
+        ScreenOrientation()
+
         Surface(
             modifier = Modifier.fillMaxSize(),
             color = MaterialTheme.colorScheme.background,
         ) {
             Column(
-                modifier = Modifier.fillMaxSize().safeDrawingPadding()
+                modifier = Modifier
+                    .fillMaxSize()
+                    .safeDrawingPadding()
                     .padding(16.dp),
             ) {
 
@@ -101,4 +107,5 @@ fun DeletioScreen() {
         }
     }
 }
+
 

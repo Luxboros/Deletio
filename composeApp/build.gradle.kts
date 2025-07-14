@@ -23,7 +23,7 @@ kotlin {
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "Deletio"
-            binaryOption("bundleId", "com.luxboros.deletio")
+            binaryOption("bundleId", "com.luxboros")
             isStatic = true
         }
     }
@@ -59,8 +59,8 @@ android {
         applicationId = "com.luxboros.deletio"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.0.0-alpha01"
     }
     packaging {
         resources {
