@@ -5,8 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -26,20 +25,12 @@ fun OutputSection(
     ) {
         Column {
             if (resultType == ResultCardType.WARNING) {
-                ResultCard("Payoff Date", payoffDate, ResultCardType.WARNING)
-                Spacer(Modifier.height(8.dp))
-                ResultCard(
-                    "Total Interest Paid",
-                    totalInterestPaid,
-                    ResultCardType.WARNING
-                )
+                ErrorCard(payoffDate, totalInterestPaid)
             } else {
-                ResultCard("Payoff Date", payoffDate, ResultCardType.POSITIVE)
-                Spacer(Modifier.height(8.dp))
                 ResultCard(
-                    "Total Interest Paid",
+                    payoffDate,
                     totalInterestPaid,
-                    ResultCardType.INFO
+                    Modifier.padding(16.dp)
                 )
             }
         }

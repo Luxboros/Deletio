@@ -1,82 +1,72 @@
 package com.luxboros.deletio.components
 
-import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.luxboros.deletio.domain.ResultCardType
-import com.luxboros.deletio.ui.theme.LocalDeletioColors
 
 @Composable
 fun ResultCard(
-    label: String,
-    value: String,
-    resultType: ResultCardType,
-    modifier: Modifier = Modifier.Companion,
+    payoffDate: String,
+    totalInterest: String,
+    modifier: Modifier = Modifier,
 ) {
-    val customColors = LocalDeletioColors.current
-
-    val surfaceColor: Color
-    val labelColor: Color
-    val valueColor: Color
-
-    when (resultType) {
-        ResultCardType.POSITIVE -> {
-            surfaceColor = customColors.positiveSurface
-            labelColor = customColors.positiveLabel
-            valueColor = customColors.positiveContent
-        }
-
-        ResultCardType.INFO -> {
-            surfaceColor = customColors.infoSurface
-            labelColor = customColors.infoLabel
-            valueColor = customColors.infoContent
-        }
-
-        ResultCardType.WARNING -> {
-            surfaceColor = customColors.warningSurface
-            labelColor = customColors.warningLabel
-            valueColor = customColors.warningContent
-        }
-    }
     Card(
-        modifier = modifier,
-        shape = MaterialTheme.shapes.extraLarge,
-        colors = CardDefaults.cardColors(containerColor = surfaceColor),
-        border = BorderStroke(
-            1.dp, color = valueColor.copy(alpha = 0.3f),
-        )
+        modifier = modifier.fillMaxWidth(),
+        shape = MaterialTheme.shapes.large,
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surface
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
-            modifier = Modifier.Companion.padding(16.dp, 12.dp),
-            horizontalAlignment = Alignment.Companion.CenterHorizontally
+            modifier = Modifier.padding(vertical = 24.dp, horizontal = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                label,
-                style = MaterialTheme.typography.labelMedium,
-                color = labelColor,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "PAYOFF DATE",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = payoffDate,
+                    modifier = Modifier.padding(top = 2.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = MaterialTheme.colorScheme.secondary,
+                    textAlign = TextAlign.Center
+                )
+            }
+
+            HorizontalDivider(
+                Modifier.padding(vertical = 8.dp),
+                DividerDefaults.Thickness,
+                MaterialTheme.colorScheme.outline.copy(alpha = 0.5f)
             )
-            Text(
-                value,
-                style = MaterialTheme.typography.headlineSmall,
-                color = valueColor,
-                fontWeight = FontWeight.Companion.Bold,
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
-            )
+
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = "TOTAL INTEREST PAID",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = totalInterest,
+                    modifier = Modifier.padding(top = 4.dp),
+                    style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center
+                )
+            }
         }
     }
 }

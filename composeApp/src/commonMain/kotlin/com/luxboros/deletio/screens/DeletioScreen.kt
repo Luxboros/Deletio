@@ -1,14 +1,15 @@
 package com.luxboros.deletio.screens
 
+//import com.luxboros.deletio.components.CalculateButton
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.luxboros.deletio.components.CalculateButton
-import com.luxboros.deletio.components.InputCard
+import com.luxboros.deletio.components.InputSection
 import com.luxboros.deletio.components.OutputSection
+import com.luxboros.deletio.components.PrimaryActionButton
 import com.luxboros.deletio.domain.ResultCardType
 import com.luxboros.deletio.domain.calculate
 import com.luxboros.deletio.domain.dateToString
@@ -27,9 +28,9 @@ var regexPattern = Regex("^\\d+(\\.\\d{0,2})?$")
 @Preview
 fun DeletioScreen() {
     CustomTheme {
-        var loanTotal by remember { mutableStateOf<String>("") }
-        var monthlyPayment by remember { mutableStateOf<String>("") }
-        var interestRate by remember { mutableStateOf<String>("") }
+        var loanTotal by remember { mutableStateOf("") }
+        var monthlyPayment by remember { mutableStateOf("") }
+        var interestRate by remember { mutableStateOf("") }
         var payoffDate by remember { mutableStateOf<LocalDate?>(null) }
         var totalInterestPaid by remember { mutableStateOf<Double?>(null) }
         var loanTotalError by remember { mutableStateOf(false) }
@@ -45,13 +46,11 @@ fun DeletioScreen() {
             color = MaterialTheme.colorScheme.background,
         ) {
             Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .safeDrawingPadding()
+                modifier = Modifier.fillMaxSize().safeDrawingPadding()
                     .padding(16.dp),
             ) {
 
-                InputCard(
+                InputSection(
                     loanTotal,
                     loanTotalError,
                     onLoanTotalChange = { it ->
@@ -81,13 +80,18 @@ fun DeletioScreen() {
                     dateToString(payoffDate),
                     formatToCurrency(totalInterestPaid),
                     showResults,
-                    resultType = (if (totalInterestPaid != null && totalInterestPaid!! < 0.0) ResultCardType.WARNING else ResultCardType.POSITIVE)
+                    resultType = (when (totalInterestPaid) {
+                        null -> ResultCardType.WARNING
+                        -1.0 -> ResultCardType.INFO
+                        -2.0 -> ResultCardType.WARNING
+                        else -> ResultCardType.POSITIVE
+                    })
                 )
                 Spacer(modifier = Modifier.height(16.dp))
-                CalculateButton(
+
+                PrimaryActionButton(
                     onClick = {
                         scope.launch {
-
                             showResults = false
                             delay(300)
                             val result = calculate(
@@ -98,7 +102,8 @@ fun DeletioScreen() {
                             showResults = true
                         }
                     },
-                    isEnabled = !(loanTotalError || monthlyPaymentError || interestRateError)
+                    enabled = !(loanTotalError || monthlyPaymentError || interestRateError),
+                    text = "Calculate",
                 )
                 Spacer(modifier = Modifier.height(8.dp))
 
