@@ -6,7 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		84F6027E2E2DF8E400590CEB /* Deletio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F6027D2E2DF8E400590CEB /* Deletio.framework */; };
+		84F6027F2E2DF8E400590CEB /* Deletio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84F6027D2E2DF8E400590CEB /* Deletio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		84F602792E2DF7FF00590CEB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				84F6027F2E2DF8E400590CEB /* Deletio.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		84F6027D2E2DF8E400590CEB /* Deletio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Deletio.framework; path = ../composeApp/build/bin/iosSimulatorArm64/debugFramework/Deletio.framework; sourceTree = "<group>"; };
 		B9DA97B12DC1472C00A4DA20 /* deletio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deletio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -41,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84F6027E2E2DF8E400590CEB /* Deletio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +71,7 @@
 		848C577B2E16A23900274FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				84F6027D2E2DF8E400590CEB /* Deletio.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -83,6 +105,7 @@
 				B9DA97AD2DC1472C00A4DA20 /* Sources */,
 				B9DA97AE2DC1472C00A4DA20 /* Frameworks */,
 				B9DA97AF2DC1472C00A4DA20 /* Resources */,
+				84F602792E2DF7FF00590CEB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,7 +136,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B9DA97AC2DC1472C00A4DA20 /* Build configuration list for PBXProject "iosApp" */;
+			buildConfigurationList = B9DA97AC2DC1472C00A4DA20 /* Build configuration list for PBXProject "Deletio" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -309,7 +332,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+					"$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -345,7 +368,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+					"$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iosApp/Info.plist;
@@ -371,7 +394,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B9DA97AC2DC1472C00A4DA20 /* Build configuration list for PBXProject "iosApp" */ = {
+		B9DA97AC2DC1472C00A4DA20 /* Build configuration list for PBXProject "Deletio" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B9DA97BD2DC1472D00A4DA20 /* Debug */,
