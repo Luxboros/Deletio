@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		84F6027E2E2DF8E400590CEB /* Deletio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F6027D2E2DF8E400590CEB /* Deletio.framework */; };
-		84F6027F2E2DF8E400590CEB /* Deletio.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84F6027D2E2DF8E400590CEB /* Deletio.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		849134A92E346F5900D9AA0B /* Deletio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849134A82E346F5900D9AA0B /* Deletio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +17,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84F6027F2E2DF8E400590CEB /* Deletio.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -26,7 +24,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		84F6027D2E2DF8E400590CEB /* Deletio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Deletio.framework; path = ../composeApp/build/bin/iosSimulatorArm64/debugFramework/Deletio.framework; sourceTree = "<group>"; };
+		849134A82E346F5900D9AA0B /* Deletio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Deletio.framework; path = ../composeApp/build/bin/iosArm64/releaseFramework/Deletio.framework; sourceTree = SOURCE_ROOT; };
 		B9DA97B12DC1472C00A4DA20 /* deletio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deletio.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84F6027E2E2DF8E400590CEB /* Deletio.framework in Frameworks */,
+				849134A92E346F5900D9AA0B /* Deletio.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,7 +69,7 @@
 		848C577B2E16A23900274FD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84F6027D2E2DF8E400590CEB /* Deletio.framework */,
+				849134A82E346F5900D9AA0B /* Deletio.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -328,6 +326,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 6Q77X88Q3H;
 				ENABLE_PREVIEWS = YES;
@@ -345,15 +344,18 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.luxboros.deletio;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -366,6 +368,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 6Q77X88Q3H;
 				ENABLE_PREVIEWS = YES;
@@ -383,16 +386,19 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.luxboros.deletio;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

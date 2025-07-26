@@ -1,25 +1,5 @@
 package com.luxboros.deletio.components
 
-//@Composable
-//fun CalculateButton(
-//    onClick: () -> Unit,
-//    isEnabled: Boolean,
-//) {
-//    Button(
-//        onClick,
-//        Modifier.fillMaxWidth().height(56.dp),
-//        isEnabled,
-//        shape = MaterialTheme.shapes.extraLarge,
-//        colors = ButtonDefaults.buttonColors(
-//            containerColor = MaterialTheme.colorScheme.primary,
-//            contentColor = MaterialTheme.colorScheme.onPrimary,
-//            disabledContainerColor = MaterialTheme.colorScheme.surface,
-//            disabledContentColor = LocalDeletioColors.current.textSecondary,
-//        )
-//    ) {
-//        Text("Calculate", style = MaterialTheme.typography.titleMedium)
-//    }
-//}
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * A custom styled primary call-to-action button for the application.
+ * A custom-styled primary call-to-action button for the application.
  * It uses the primary color from the MaterialTheme for its background.
  *
  * @param text The text to display on the button.
