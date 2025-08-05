@@ -14,7 +14,7 @@ enum class ResultCardType {
 fun formatToCurrency(value: Double?, currencySymbol: String = "$"): String {
     return when (value) {
         null -> "${currencySymbol}0.00"
-        -1.0 -> "Interest exceeds payment\nLoan balance will keep on growing."
+        -1.0 -> "Interest exceeds payment\nLoan balance will continue to grow."
         -2.0 -> "Can't calculate emptiness. Fill in all fields"
         else -> {
             "$currencySymbol${value.toCurrencyString()}"

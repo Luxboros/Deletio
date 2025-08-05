@@ -1,11 +1,14 @@
 package com.luxboros.deletio.screens
 
-//import com.luxboros.deletio.components.CalculateButton
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.unit.dp
 import com.luxboros.deletio.components.InputSection
 import com.luxboros.deletio.components.OutputSection
@@ -38,11 +41,18 @@ fun DeletioScreen() {
         var interestRateError by remember { mutableStateOf(false) }
         var showResults by remember { mutableStateOf(false) }
         val scope = rememberCoroutineScope()
+        val focusManager = LocalFocusManager.current
+        val keyboardController = LocalSoftwareKeyboardController.current
 
         ScreenOrientation()
 
         Surface(
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().pointerInput(Unit) {
+                detectTapGestures(onTap = {
+                    focusManager.clearFocus()
+                    keyboardController?.hide()
+                })
+            },
             color = MaterialTheme.colorScheme.background,
         ) {
             Column(
@@ -92,6 +102,8 @@ fun DeletioScreen() {
                 PrimaryActionButton(
                     onClick = {
                         scope.launch {
+                            focusManager.clearFocus()
+                            keyboardController?.hide()
                             showResults = false
                             delay(300)
                             val result = calculate(
