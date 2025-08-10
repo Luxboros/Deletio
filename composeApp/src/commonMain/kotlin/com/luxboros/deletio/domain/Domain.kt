@@ -2,6 +2,7 @@ package com.luxboros.deletio.domain
 
 import com.luxboros.deletio.helpers.toCurrencyString
 import kotlinx.datetime.*
+import kotlin.time.Clock
 
 data class CalculationResult(
     val payoffDate: LocalDate?, val totalInterestPaid: Double?,
@@ -22,6 +23,7 @@ fun formatToCurrency(value: Double?, currencySymbol: String = "$"): String {
     }
 }
 
+@OptIn(kotlin.time.ExperimentalTime::class)
 fun dateToString(date: LocalDate?): String {
     return when {
         date == null -> "Invalid Input"
@@ -32,6 +34,7 @@ fun dateToString(date: LocalDate?): String {
     }
 }
 
+@OptIn(kotlin.time.ExperimentalTime::class)
 fun calculate(
     monthlyPayment: String, interestRate: String, loanTotal: String,
 ): CalculationResult {
@@ -47,9 +50,10 @@ fun calculate(
 
     if (loanTotalValue > 0.0 && monthlyPaymentValue <= loanTotalValue * monthlyRate) {
         return CalculationResult(
-            Clock.System.todayIn(TimeZone.currentSystemDefault()).minus(
-                1, DateTimeUnit.MONTH
-            ), -1.0
+            Clock.System.todayIn(TimeZone.currentSystemDefault())
+                .minus(
+                    1, DateTimeUnit.MONTH
+                ), -1.0
         )
     }
 
